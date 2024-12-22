@@ -3,6 +3,7 @@ title: Vector Programming Language Specification
 version: 0.1
 date:
 editor: Higenyi Tobias Thomas
+status: Draft
 ---
 
 ## Introduction
@@ -108,10 +109,10 @@ Keywords are words that carry special meaning in vector and can not
 be used as identifiers. They include
 ```
 def      if        else       switch
-case     for       while      endif
-endfor   endwhile  endswitch  end
+case     for       while      in
 return   yield     new        is
-in
+end      endif     endfor     endswitch
+endwhile
 ```
 
 ## Expressions
@@ -203,7 +204,7 @@ return-statement := `return` expression
 A type in vector is an entity that possesses attributes and functions that
 perform operations on those attributes. A type is unique and distinguishable
 from other types. A type can either be one of two kinds of types, which are;
-primitive types or compund types. Primitive types are built into the programming
+primitive types or compound types. Primitive types are built into the programming
 language while compound types can either be built into the language or defined
 in vector code. Types defined in vector code are referred to as user-defined
 types while types built into the language are referred to as builtin types
@@ -233,8 +234,9 @@ Builtin compound types include:
 User-defined types are defined in code. They are created using the `type` keyword.
 User-defined compound types include:
 - Regular Type
-- Generic Type
 - Union Type
+- Function Type
+- Record Type
 
 ##### Regular Type
 Regular types are defined using the `type` keyword followed by the type matter
@@ -245,9 +247,12 @@ placed before the type name. A newly created type can extend an existing type.
 This is done by placing an arrow symbol `->` between the name of an existing type
 and the name of a newly created type in the type matter.
 
-##### Generic Type
-
 ##### Union Type
+
+##### Function Type
+
+##### Record Type
+
 
 ## Variables
 Variables are memory locations that store addresses to values. They are written
@@ -264,4 +269,5 @@ created or used. They include:
 ### const
 The const modifier is used to define constant variables whose value is
 unchanged throughout the life-time of the running program
-### dataonly
+
+
